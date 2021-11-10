@@ -1,0 +1,116 @@
+body {
+  background-color: white;
+}
+
+#logo {
+  color: limegreen;
+  text-align: center;
+  font-size: 70px;
+  font-family: "Bangers", cursive;
+}
+.circle {
+  margin: auto;
+  margin-top: 50px;
+  width: 600px;
+  height: 600px;
+  border: solid 5px black;
+  border-radius: 600px;
+  z-index: 8;
+}
+.color {
+  margin: 0;
+  float: left;
+  position: relative;
+  width: 294px;
+  height: 294px;
+  border: solid 3px black;
+}
+.green {
+  background-color: green;
+  border-radius: 300px 0 0 0;
+}
+.red {
+  background-color: red;
+  border-radius: 0 300px 0 0;
+}
+
+.yellow {
+  background-color: yellow;
+  border-radius: 0 0 0 300px;
+}
+
+.blue {
+  background-color: blue;
+  border-radius: 0 0 300px 0;
+}
+.container {
+  width: 245px;
+  height: 245px;
+  margin-left: 170px;
+  margin-top: 170px;
+  background-color: black;
+  border: solid 10px black;
+  border-radius: 150px;
+  position: absolute;
+  z-index: 10;
+}
+.but1 {
+  font-family: "Bangers", cursive;
+  background: none;
+  color: #ffa260;
+  border: 2px solid;
+  margin: 90px 10px 75px 75px;
+  padding: 1em 2em;
+  font-size: 1em;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.but1:hover {
+  border-color: #f1ff5c;
+  color: white;
+  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+  transform: translateY(-0.25em);
+  cursor: pointer;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20px auto;
+  background-color: salmon;
+  padding: 20px 0;
+}
+#round {
+  font-family: "Bangers", cursive;
+}
+.reset {
+  font-family: "Bangers", cursive;
+  background: none;
+  color: #ffa260;
+  border: 2px solid black;
+  margin: auto;
+  padding: 1em 2em;
+  font-size: 1em;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.reset:hover {
+  border-color: #f1ff5c;
+  color: white;
+  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+  transform: translateY(-0.25em);
+  cursor: pointer;
+}
+#score {
+  font-family: "Bangers", cursive;
+}
+
+/*
+margin-left: 88px;
+  margin: 90px;
+  line-height: 55px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  border: solid 3px black;
+  border-radius: 3px;
+  */
