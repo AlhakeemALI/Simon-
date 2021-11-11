@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: gray;
 }
 
 #logo {
@@ -63,6 +63,7 @@ body {
   padding: 1em 2em;
   font-size: 1em;
   transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  border-radius: 30px;
 }
 .but1:hover {
   border-color: #f1ff5c;
@@ -76,11 +77,11 @@ body {
   flex-direction: row;
   justify-content: space-around;
   margin: 20px auto;
-  background-color: salmon;
   padding: 20px 0;
 }
 #round {
   font-family: "Bangers", cursive;
+  font-size: 30px;
 }
 .reset {
   font-family: "Bangers", cursive;
@@ -91,6 +92,7 @@ body {
   padding: 1em 2em;
   font-size: 1em;
   transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  border-radius: 30px;
 }
 
 .reset:hover {
@@ -102,9 +104,16 @@ body {
 }
 #score {
   font-family: "Bangers", cursive;
+  font-size: 30px;
+}
+.light {
+  background-color: white;
 }
 
 /*
+box-shadow: inset 0 0 3em white;
+  opacity: 80%;
+  transition: box-shadow 1s ease-in;
 margin-left: 88px;
   margin: 90px;
   line-height: 55px;
