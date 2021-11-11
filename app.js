@@ -1,15 +1,47 @@
 
-
+let  arrayPlayer = []
+let  arrayOrder = []
 let  gameStart = false;
+let win = false
 
 
+const startButton = document.querySelector('.but1')
+const  divPanals= document.querySelectorAll('.panal')
+const resetButton = document.querySelector('.reset')
 const  colorGreen = document.querySelector('.green');
 const colorRed = document.querySelector('.red');
 const colorYellow = document.querySelector('.yellow');
-const cloorBlue = document.querySelector(' .blue');
+const colorBlue = document.querySelector('.blue');
 
 
-const sequance = [colorGreen, colorRed, colorYellow, cloorBlue];
+startButton.addEventListener('click',(e) => {
+  gameStart = true
+  console.log(e.target)
+})
+
+const randomColor = [
+  colorGreen, 
+  colorRed, 
+  colorYellow, 
+  colorBlue
+];
+
+const getRendamIndex  = (randomColor) => {
+
+  const randomIndex =  randomColor[Math.floor(Math.random() * randomColor.length)]
+  return randomIndex
+}
+
+
+const sequance = [getRendamIndex(randomColor), 
+  getRendamIndex(randomColor),
+  getRendamIndex(randomColor), 
+  getRendamIndex(randomColor)
+];
+
+console.log(sequance)
+
+
 
 // add a Function to flash all the for panals
 const  addClass = circal => {
@@ -19,7 +51,10 @@ const  addClass = circal => {
       circal.classList.add('light');
       setTimeout(() => {
         circal.classList.remove('light');
-        resolve();
+        setTimeout(() => {
+          resolve();
+        },250);
+        
       },1000);
     });
   }
@@ -30,11 +65,18 @@ const  addClass = circal => {
        await addClass(panal);
     }
   }
-  
   flashAdd();
 
+     divPanals.forEach((element) => {
+      element.addEventListener('click',(e) => {
+        console.log(e.target)
+      })
+     })
+      
+      
+  
+     
+  
+   
 //
-
-
-
 
