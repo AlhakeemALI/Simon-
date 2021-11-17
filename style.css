@@ -1,19 +1,19 @@
 body {
-  background-color: blackgir ;
+  background-color: black;
 }
 
 #resetText {
   font-family: "Bangers", cursive;
   font-size: 15px;
-  color: rgb(205, 107, 50);
-  background-color: white;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #00e50b, 0 0 42px #08d612,
-    0 0 82px #00e526, 0 0 92px #26e500, 0 0 102px #00e50b, 0 0 151px #00e545;
-
-  width: 110px;
-  height: 110px;
-  border-radius: 5%
+  width: 130px;
+  padding: 20px 5px;
+  color: red;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 8px red, 0 0 15px red,
+    0 0 20px red, 0 0 30px red;
   text-align: center;
+  border-radius: 10px;
+  letter-spacing: 2px;
 }
 
 #logo {
@@ -46,20 +46,24 @@ body {
 .green {
   background-color: green;
   border-radius: 300px 0 0 0;
+  cursor: pointer;
 }
 .red {
   background-color: red;
   border-radius: 0 300px 0 0;
+  cursor: pointer;
 }
 
 .yellow {
   background-color: yellow;
   border-radius: 0 0 0 300px;
+  cursor: pointer;
 }
 
 .blue {
   background-color: blue;
   border-radius: 0 0 300px 0;
+  cursor: pointer;
 }
 .container {
   width: 245px;
@@ -71,18 +75,22 @@ body {
   border-radius: 150px;
   position: absolute;
   z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .but1 {
   font-family: "Bangers", cursive;
   background: none;
   color: limegreen;
   border: 2px solid;
-  margin: 90px 10px 75px 75px;
   padding: 1em 2em;
   font-size: 1em;
   transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   border-radius: 30px;
 }
+
 .but1:hover {
   border-color: #f1ff5c;
   color: red;
@@ -147,6 +155,9 @@ body {
 
 .light {
   background-color: white;
+}
+.hide {
+  display: none;
 }
 
 /*
