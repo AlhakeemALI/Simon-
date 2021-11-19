@@ -2,14 +2,19 @@ window.onload = function () {
   let playerChoices = [];
   let computerChoices = [];
   let sequence = [];
-  let gameStart = false;
   let canClick = false;
   let isGameRunning = false;
-  let isResetOn = false;
   let numLightToGuess = 0;
   let counter = 0;
 
-  const startButton = document.querySelector(".but1");
+  const sound = {
+    blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+    red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
+    yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+    green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+  };
+
+  const startButton = document.querySelector(".startBtn");
   const divPanels = document.querySelectorAll(".panel");
   const resetButton = document.querySelector(".reset");
   const colorGreen = document.querySelector(".green");
@@ -20,6 +25,7 @@ window.onload = function () {
   const score = document.querySelector("#score2");
   const resetText = document.querySelector("#resetText");
   resetText.style.display = "none";
+
   // Add  A function to start the game
   startButton.addEventListener("click", function (event) {
     if (isGameRunning) {
@@ -27,12 +33,11 @@ window.onload = function () {
     }
     sequence = [];
     isGameRunning = true;
-    gameStart = true;
-    isResetOn = true;
     playerRound.textContent = 1;
     resetText.style.display = "none";
     computerTurn();
   });
+
   // Add  A function to generate a random color
   const randomColor = [colorGreen, colorRed, colorYellow, colorBlue];
   const getRendamIndex = (randomColor) => {
@@ -47,14 +52,21 @@ window.onload = function () {
       return new Promise((resolve) => {
         circle.classList.add("light");
         computerChoices.push(circle.id);
+        if (circle.id === colorBlue.id) {
+          sound.blue.play();
+        } else if (circle.id === colorRed.id) {
+          sound.red.play();
+        } else if (circle.id === colorYellow.id) {
+          sound.yellow.play();
+        } else if (circle.id === colorGreen.id) {
+          sound.green.play();
+        }
         console.log(`computerChoices  ===> ${[computerChoices]}`);
         setTimeout(() => {
           circle.classList.remove("light");
-          setTimeout(() => {}, 500);
+          setTimeout(() => {}, 250);
           resolve();
           counter++;
-          //console.log(`counter log ===> ${counter}`);
-          //console.log(`num light to guess ===> ${numLightToGuess}`);
           numLightToGuess += 1;
           if (counter >= numLightToGuess && canClick == false) {
             canClick = true;
@@ -63,20 +75,30 @@ window.onload = function () {
       });
     }
   };
+
   // Add an EventListene on click
   const panelClick = divPanels.forEach((element) => {
     element.addEventListener("click", function (event) {
       if (canClick) {
         playerChoices.push(element.id);
         console.log(`playerChoices ====>  ${[playerChoices]}`);
+        if (element.id === colorBlue.id) {
+          sound.blue.play();
+        } else if (element.id === colorRed.id) {
+          sound.red.play();
+        } else if (element.id === colorYellow.id) {
+          sound.yellow.play();
+        } else if (element.id === colorGreen.id) {
+          sound.green.play();
+        }
         play();
       }
     });
   });
-  // Add  a function to play
+
+  // Add  A function to play
   const play = () => {
     if (!canClick) return;
-
     if (arraysEqual(playerChoices, computerChoices)) {
       score.textContent++;
       playerRound.textContent++;
@@ -84,15 +106,11 @@ window.onload = function () {
     } else if (playerChoices.length == computerChoices.length) {
       resetText.style.display = "block";
       startButton.classList.add("hide");
-      //alert("Incorrect choice, start again...");
       canClick = false;
-      console.log(`if ===> it's working`);
     }
   };
-
+  // Add An EventListener to Reset the Game
   const reset = resetButton.addEventListener("click", function (e) {
-    console.log(`it's working`);
-    isResetOn = true;
     computerChoices = [];
     playerChoices = [];
     sequence = [];
@@ -100,28 +118,26 @@ window.onload = function () {
     numLightToGuess = 0;
     score.textContent = 0;
     playerRound.textContent = 0;
-    console.log(sequence);
     isGameRunning = false;
     startButton.classList.remove("hide");
     resetText.style.display = "none";
   });
-
+  //  Add A function  to  make the computerTurn every round
   const computerTurn = () => {
     sequence.unshift(getRendamIndex(randomColor));
-    //sequence.reverse();
     computerChoices = [];
     playerChoices = [];
     counter = 0;
     numLightToGuess = 0;
     flashAdd();
   };
-
+  // Add A flash to each panel every time the computerplay
   const flashAdd = async () => {
     for (const panel of sequence) {
       await addClass(panel);
     }
   };
-
+  // Add a function to check both Arrays computerChoices && playerChoices
   const arraysEqual = (array1, array2) => {
     return (
       Array.isArray(array1) &&

@@ -80,7 +80,7 @@ body {
   align-items: center;
 }
 
-.but1 {
+.startBtn {
   font-family: "Bangers", cursive;
   background: none;
   color: limegreen;
@@ -91,7 +91,7 @@ body {
   border-radius: 30px;
 }
 
-.but1:hover {
+.startBtn:hover {
   border-color: #f1ff5c;
   color: red;
   box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
@@ -159,17 +159,3 @@ body {
 .hide {
   display: none;
 }
-
-/*
-box-shadow: inset 0 0 3em white;
-  opacity: 80%;
-  transition: box-shadow 1s ease-in;
-margin-left: 88px;
-  margin: 90px;
-  line-height: 55px;
-  text-align: center;
-  width: 60px;
-  height: 60px;
-  border: solid 3px black;
-  border-radius: 3px;
-  */
